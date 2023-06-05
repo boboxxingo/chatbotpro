@@ -35,7 +35,6 @@ def obteniendo_texto():
 
 
 entrada_usuario = obteniendo_texto()
-
 if entrada_usuario:
     salida =respuesta_B(entrada_usuario)
     st.session_state.past.append(entrada_usuario)
