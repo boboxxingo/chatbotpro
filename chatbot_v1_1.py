@@ -1,4 +1,4 @@
-# Importar dependencias
+ #Importar dependencias
 
 import openai
 import streamlit as st
@@ -7,7 +7,7 @@ from streamlit_chat import message
 openai.api_key = st.secrets["clave"]
 st.header("Asistente de Soporte Tecnico")
 
- # temp = st.slider("temperature", 0.0, 1.0, 0.5)
+# temp = st.slider("temperature", 0.0, 1.0, 0.5)
 #funcion que interactua con la API de openia
 def respuesta_B(prompt):
     respuesta_bot = openai.Completion.create(
