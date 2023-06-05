@@ -4,7 +4,7 @@ import openai
 import streamlit as st
 from streamlit_chat import message
 # accesar a GPT-3 Por medio de la API
-openai.api_key = st.secrets["clave"]
+openai.api_key = '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'
 st.header("Asistente de Soporte Tecnico")
 
 # temp = st.slider("temperature", 0.0, 1.0, 0.5)
