@@ -4,7 +4,8 @@ import openai
 import streamlit as st
 from streamlit_chat import message
 # accesar a GPT-3 Por medio de la API
-openai.api_key = st.secrets["api_sec"] 
+secrets = toml.load("secrets.toml")
+openai.api_key = st.secrets["secrets"]["API_KEY"]
 
 st.header("Asistente de Soporte Tecnico")
 
