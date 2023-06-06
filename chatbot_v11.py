@@ -5,12 +5,14 @@ import streamlit as st
 from streamlit_chat import message
 # accesar a GPT-3 Por medio de la API
 openai.api_key = st.secrets["api_secret"]
+
 st.header("Asistente de Soporte Tecnico")
 
 # temp = st.slider("temperature", 0.0, 1.0, 0.5)
 # funcion que interactua con la API de openia
-def respuesta_B(prompt):
-    respuesta_bot = openai.Completion.create(
+
+def respuesta_B (prompt):
+    rta = openai.Completion.create(
         engine="text-davinci-003",
         prompt=prompt,
         max_tokens=1024,
@@ -18,8 +20,9 @@ def respuesta_B(prompt):
         stop=None,
         temperature=0.5,
     )
-    mensaje = respuesta_bot.choices[0].text
+    mensaje = rta.choices[0].text
     return mensaje
+
 
 
 if 'generated' not in st.session_state:
@@ -29,14 +32,15 @@ if 'past' not in st.session_state:
     st.session_state['past'] = []
 
 
-def obteniendo_texto():
+def obteniendo_texto ():
     texto_ingresado = st.text_input("Tu: ", "Hola, como estas", key="entrada")
     return texto_ingresado
 
 
 entrada_usuario = obteniendo_texto()
+
 if entrada_usuario:
-    salida =respuesta_B(entrada_usuario)
+    salida=respuesta_B(entrada_usuario)
     st.session_state.past.append(entrada_usuario)
     st.session_state.generated.append(salida)
 
